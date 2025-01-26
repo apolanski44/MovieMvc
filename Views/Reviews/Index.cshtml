@@ -1,0 +1,63 @@
+﻿@model MvcFilm.Models.Movie
+@section Styles {
+    <link rel="stylesheet" href="~/css/reviews.css" asp-append-version="true" />
+}
+<div class="movie-container">
+    <div class="movie-info">
+        <h1>@Model.Title (@Model.ReleaseYear)</h1>
+        <p class="genre">@Model.Genre</p>
+        <div class="description-container">
+            <h4>Description:</h4>
+            <p class="description">@Model.Description</p>
+        </div>
+        <div class="rating">
+            <p>Average Rating: <span class="average-rating">@Model.AverageRating.ToString("0.0")</span></p>
+        </div>
+        <div class="image-container">
+            <img src="@Url.Content("~/images/" + Model.ImagePath)" alt="Poster of @Model.Title" class="movie-poster" />
+        </div>
+    </div>
+</div>
+
+<div class="reviews-section">
+    <h3>Reviews</h3>
+    <div class="comments-container">
+        @if (Model.Comments.Any())
+        {
+            @foreach (var comment in Model.Comments)
+            {
+                <div class="review-card">
+                    <p class="username">@comment.User.UserName</p>
+                    <p class="content">@comment.Content</p>
+                    <p class="date">@comment.CreatedAt.ToString("dd.MM.yyyy HH:mm")</p>
+
+                    @if (User.Identity.IsAuthenticated && comment.UserId == ViewBag.UserId)
+                    {
+                        <form asp-action="DeleteComment" method="post" class="delete-comment-form">
+                            <input type="hidden" name="commentId" value="@comment.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    }
+                </div>
+            }
+        }
+        else
+        {
+            <p>No reviews yet. Be the first to review!</p>
+        }
+    </div>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form asp-action="AddComment" method="post" class="review-form">
+            <input type="hidden" name="movieId" value="@Model.Id" />
+            <textarea name="content" class="form-control" rows="3" placeholder="Write a review..."></textarea>
+            <button type="submit" class="btn btn-primary mt-2">Submit Review</button>
+        </form>
+    }
+    else
+    {
+        <p>Please <a asp-controller="Account" asp-action="Login">log in</a> to write a review.</p>
+    }
+</div>
+

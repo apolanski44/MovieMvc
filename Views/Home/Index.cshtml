@@ -1,0 +1,77 @@
+﻿@section Styles {
+    <link rel="stylesheet" href="~/css/Home.css" asp-append-version="true" />
+}
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="hero-section text-center">
+    <h1 class="display-4">Welcome to Movie Review Hub!</h1>
+    <p class="lead">
+        Discover, rate, and review your favorite movies. Join our community of film enthusiasts today!
+    </p>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <a href="/Account/Registration" class="btn btn-primary btn-lg mt-3">Join Now</a>
+    }
+</div>
+
+<div class="features-section mt-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Key Features</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <a href="/Movie/Index" class="feature-box-link">
+                    <div class="feature-box">
+                        <i class="fa fa-film feature-icon"></i>
+                        <h4>Explore Movies</h4>
+                        <p>Browse our extensive movie library and find something you'll love.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="/Movie/Index" class="feature-box-link">
+                    <div class="feature-box">
+                        <i class="fa fa-star feature-icon"></i>
+                        <h4>Rate Movies</h4>
+                        <p>Leave your ratings and reviews for movies you've watched.</p>
+                    </div>
+                </a>
+            </div>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <div class="col-md-6">
+                    <a href="/Account/Login" class="feature-box-link">
+                        <div class="feature-box">
+                            <i class="fa fa-user feature-icon"></i>
+                            <h4>Login</h4>
+                            <p>Access your favorite movies and personalized recommendations.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="/Account/Registration" class="feature-box-link">
+                        <div class="feature-box">
+                            <i class="fa fa-users feature-icon"></i>
+                            <h4>Sign Up</h4>
+                            <p>Join the community to share opinions and engage with others.</p>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="community-section text-center mt-5">
+    <div class="container">
+        <h2 class="text-center">Join Our Movie-Loving Community!</h2>
+        <p>
+            Register now to start rating movies, writing reviews, and discovering new favorites based on your preferences. Every opinion matters!
+        </p>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <a href="/Account/Registration" class="btn btn-secondary btn-lg mt-3">Register Now</a>
+        }
+    </div>
+</div>

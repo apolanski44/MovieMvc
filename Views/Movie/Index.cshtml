@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MvcFilm.Models.Movie>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Movie.css" asp-append-version="true" />
+}
+
+<h1 class="page-header text-center">Movie List</h1>
+
+<form method="get" asp-controller="Movie" asp-action="Index" class="genre-filter-form mb-4">
+    <label for="genre" class="form-label">Filter by Genre:</label>
+    <select id="genre" name="genre" class="form-select" onchange="this.form.submit()">
+        <option value="All">...</option>
+        <option value="All">All</option>
+      
+        @foreach (var genre in ViewBag.Genres as List<string>)
+        {
+            <option value="@genre">@genre</option>
+        }
+    </select>
+</form>
+
+<div class="movies-container">
+    @foreach (var movie in Model)
+    {
+        <div class="movie-card">
+            <h2>@movie.Title (@movie.ReleaseYear)</h2>
+            <p class="genre">@movie.Genre</p>
+
+            <img src="@Url.Content("~/images/" + movie.ImagePath)" alt="Poster of @movie.Title" class="movie-poster" />
+
+            <p class="average-rating">Average Rating: @movie.AverageRating.ToString("0.0")</p>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="rating-form">
+                    <form asp-action="RateMovie" method="post">
+                        <input type="hidden" name="movieId" value="@movie.Id" />
+                        <div class="stars">
+                            @for (int i = 1; i <= 5; i++)
+                            {
+                                <button type="submit" name="score" value="@i" class="star @(i <= @Math.Ceiling(movie.AverageRating) ? "checked" : "")">
+                                    &#9733;
+                                </button>
+                            }
+                        </div>
+                    </form>
+                </div>
+                <form asp-action="AddToFavorites" method="post" class="favorites-form">
+                    <input type="hidden" name="movieId" value="@movie.Id" />
+                    <button type="submit" class="btn btn-primary">Add to Favorites</button>
+                </form>
+
+                <form asp-controller="Reviews" asp-action="Index" method="get" class="reviews-form">
+                    <input type="hidden" name="movieId" value="@movie.Id" />
+                    <button type="submit" class="btn btn-secondary">Reviews</button>
+                </form>
+            }
+            else
+            {
+                <p>
+                    Please <a asp-controller="Account" asp-action="Login">log in</a> to add ratings, comments, or add to favorites.
+                </p>
+            }
+        </div>
+    }
+</div>

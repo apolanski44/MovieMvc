@@ -1,0 +1,110 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+
+
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 15px;
+}
+
+
+.welcome-message {
+    font-size: 1rem;
+    color: #333;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+
+.logout-form {
+    margin: 0;
+}
+
+
+    .logout-form button {
+        font-size: 0.9rem;
+        padding: 5px 10px;
+        border-radius: 20px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .logout-form button:hover {
+            background-color: #ff4d4d;
+            color: #fff;
+        }
+
+
+.user-menu .btn {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.user-menu .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.user-menu .btn-outline-success:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+.navbar {
+    background-color: #f8f9fa;
+    padding: 1rem;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-link {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+    .nav-link:hover {
+        color: #0056b3;
+        background-color: #e9ecef;
+        border-radius: 5px;
+    }
+
+    .nav-link.text-danger {
+        color: #dc3545;
+    }
+
+        .nav-link.text-danger:hover {
+            color: #fff;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }

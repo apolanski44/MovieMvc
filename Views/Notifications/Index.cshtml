@@ -1,0 +1,34 @@
+﻿@model IEnumerable<MvcFilm.Models.Notification>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Movie.css" asp-append-version="true" />
+}
+
+<h1 class="page-header text-center mb-4">Notifications</h1>
+
+@if (Model.Any())
+{
+    <ul class="list-group">
+        @foreach (var notification in Model)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <p class="mb-1">@notification.Message</p>
+                    <small class="text-muted">@notification.CreatedAt.ToString("g")</small>
+                </div>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <div class="alert alert-info text-center" role="alert">
+        No new notifications.
+    </div>
+}
+
+<div class="text-center mt-4">
+    <form asp-action="ClearNotifications" method="post">
+        <button type="submit" class="btn btn-danger">Clear Notifications</button>
+    </form>
+</div>

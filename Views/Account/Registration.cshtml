@@ -1,0 +1,48 @@
+﻿@model MvcFilm.Models.RegistrationViewModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/LoginRegistration.css" />
+}
+
+<div class="auth-container">
+    <h1 class="auth-title register">Register</h1>
+    <form asp-action="Registration" class="auth-form">
+        <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
+        <div class="form-group">
+            <label asp-for="FirstName" class="control-label"></label>
+            <input asp-for="FirstName" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LastName" class="control-label"></label>
+            <input asp-for="LastName" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="control-label"></label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UserName" class="control-label"></label>
+            <input asp-for="UserName" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="control-label"></label>
+            <input asp-for="Password" type="password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPassword" class="control-label"></label>
+            <input asp-for="ConfirmPassword" type="password" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-register">Register</button>
+        </div>
+    </form>
+    <div class="auth-link">
+        Already have an account? <a asp-action="Login">Login here</a>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MvcFilm.Models.Favorite>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Movie.css" asp-append-version="true" />
+}
+
+<h1 class="page-header">Favourite movies:</h1>
+
+<div class="movies-container">
+    @foreach (var favorite in Model)
+    {
+        <div class="movie-card">
+            <h2>@favorite.Movie.Title (@favorite.Movie.ReleaseYear)</h2>
+            <p class="genre">@favorite.Movie.Genre</p>
+            <p class="average-rating">Average rating: @favorite.Movie.AverageRating.ToString("0.0")</p>
+            <img src="@Url.Content("~/images/" + favorite.Movie.ImagePath)" alt="Poster of @favorite.Movie.Title" class="movie-poster" />
+            <div class="action-buttons">
+                <form asp-action="Remove" method="post" class="favorites-remove-form">
+                    <input type="hidden" name="favoriteId" value="@favorite.Id" />
+                    <button type="submit" class="btn btn-danger">Remove from favourites</button>
+                </form>
+
+            </div>
+        </div>
+    }
+</div>
+

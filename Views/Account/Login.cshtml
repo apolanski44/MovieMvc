@@ -1,0 +1,28 @@
+﻿@model MvcFilm.Models.LoginViewModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/LoginRegistration.css" />
+}
+
+<div class="auth-container">
+    <h1 class="auth-title">Login</h1>
+    <form asp-action="Login" class="auth-form">
+        <div asp-validation-summary="ModelOnly" class="text-danger validation-summary"></div>
+        <div class="form-group">
+            <label asp-for="UserNameOrEmail" class="control-label"></label>
+            <input asp-for="UserNameOrEmail" />
+            <span asp-validation-for="UserNameOrEmail" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password" class="control-label"></label>
+            <input asp-for="Password" type="password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-login">Login</button>
+        </div>
+    </form>
+    <div class="auth-link">
+        Don't have an account? <a asp-action="Registration">Register here</a>
+    </div>
+</div>

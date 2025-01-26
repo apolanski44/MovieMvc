@@ -1,0 +1,134 @@
+﻿body {
+    
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h3 {
+    text-align: center;
+    color: #333;
+    
+}
+
+.movie-container {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.movie-info .rating {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff9900; 
+    margin-top: 10px;
+    text-align: center;
+}
+
+.movie-info .average-rating {
+    font-size: 1.5rem;
+    color: #ffcc00;
+}
+
+.movie-info h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.genre {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.description-container {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f7f7f7;
+    border: 1px solid black;
+    border-radius: 5px;
+    line-height: 1.5;
+}
+
+    .description-container h4 {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        color: #333;
+        
+    }
+
+.description {
+    font-size: 1rem;
+    color: #666;
+    
+}
+
+.image-container {
+    text-align: center;
+}
+
+.movie-poster {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.reviews-section {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.comments-container {
+    max-height: 500px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.review-card {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .review-card .username {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .review-card .content {
+        font-size: 1rem;
+        color: #555;
+        margin: 5px 0;
+    }
+
+    .review-card .date {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+.review-form textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+

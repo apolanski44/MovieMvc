@@ -1,0 +1,138 @@
+﻿.movies-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.movie-card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .movie-card:hover {
+        transform: scale(1.03);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .movie-card h2 {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .movie-card .genre {
+        font-size: 1.2rem;
+        font-style: italic;
+        color: #555;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .movie-card .description {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.5;
+        text-align: justify;
+        margin-bottom: 1rem;
+    }
+
+    .movie-card img.movie-poster {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .movie-card .average-rating {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #ff9900;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+.stars button {
+    background: none;
+    border: none;
+    color: #ccc;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+    .stars button.checked {
+        color: #f5b301;
+    }
+
+    .stars button:hover,
+    .stars button:hover ~ button {
+        color: #ffc107;
+    }
+
+
+.favorites-form button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .favorites-form button:hover {
+        background-color: #0056b3;
+    }
+
+.reviews-form button {
+    margin-top: 10px;
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    .reviews-form button:hover {
+        background-color: #5a6268;
+    }
+
+.movie-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+    .movie-card p a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        .movie-card p a:hover {
+            text-decoration: underline;
+        }
+
+.page-header {
+    font-size: 3rem; 
+    font-weight: bold; 
+
+    text-align: center; 
+    text-transform: uppercase; 
+    border-bottom: 2px solid black; 
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
